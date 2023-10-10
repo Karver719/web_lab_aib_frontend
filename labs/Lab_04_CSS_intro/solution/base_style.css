@@ -1,0 +1,50 @@
+body{
+    min-width: 850px;
+}
+
+img{
+    width: 210px;
+    margin-bottom: 80px;
+}
+
+h1,h2,h3{
+    color: aliceblue;
+}
+
+h1{
+    font-family: "William", serif;
+    font-style: italic;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 45px;
+    margin-bottom: 0px;
+}
+
+h2{
+    font-family: "Inter", sans-serif;
+    margin-top: 0px;
+    margin-bottom: 35px;
+}
+
+h3{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 18px;
+    font-weight: normal;
+    margin: 0;
+}
+
+div{
+    background-color: SteelBlue;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    margin: 0 auto 20px;
+}
+
+p{
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
