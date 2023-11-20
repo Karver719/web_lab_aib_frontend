@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JS</title>
+</head>
+<body>
+<script>
+let array = []
+for (let i=0; i<10; i++)
+    array.push(Math.floor( -15 + 50 * Math.random()));
+console.log(array);
+array = array.filter(num => num >= 0);
+console.log(array);
+</script>
+</body>
+</html>

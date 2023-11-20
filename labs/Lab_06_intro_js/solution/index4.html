@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JS</title>
+</head>
+<body>
+<script>
+
+    function getRandomInt(max, min) {
+    return Math.floor(min + Math.random() * max);
+    }
+let pip = getRandomInt(25, -5)
+console.log(pip);
+
+let array = []
+for (let i=0; i<10; i++)
+    array.push(Math.floor( -15 + 50 * Math.random()));
+console.log(array);
+
+    function mass2(array, number){
+    let new_array = array.map(element => element * number);
+    return new_array;
+    }
+
+let array2 = mass2(array, pip);
+console.log(array2);
+
+let random_word = function() {
+  let alphabet = 'йцукенгшщзхъфывапролджэячсмитьбю';
+  let word = '';
+  for (let i = 0; i < 7; i++) {
+    let index = Math.floor(Math.random() * alphabet.length);
+    word += alphabet[index];
+  }
+  return word;
+};
+
+console.log(random_word());
+</script>
+</body>
+</html>
