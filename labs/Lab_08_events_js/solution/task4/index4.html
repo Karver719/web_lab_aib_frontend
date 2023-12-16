@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="laba8_4.css" />
+    <title>Изменение цвета квадрата</title>
+</head>
+<body>
+    <div id="listOfBoxes" class="The-List-of-color-boxes">
+       
+    </div>
+    <div id="colorBox" class="color-box">
+        <div>
+            <label for="redInput">Red:</label>
+            <input type="number" id="redInput" min="0" max="255">
+            <label for="greenInput">Green:</label>
+            <input type="number" id="greenInput" min="0" max="255">
+            <label for="blueInput">Blue:</label>
+            <input type="number" id="blueInput" min="0" max="255">
+            <button class = "generateButton" onclick = 'addBoxToList()'>Сгенерировать</button>
+        </div>
+    
+    </div>
+    <div id="colorSquare" class="color-square"></div>
+    <div id='resultBox' class="result-box">
+        <h2>Результат:</h2>
+        <div id="colorResult"></div>
+    </div>
+    <script src="laba8_4.js"></script>
+</body>
+</html>

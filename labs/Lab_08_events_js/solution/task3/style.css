@@ -1,0 +1,11 @@
+.colorStorageUnit {
+    display: inline-block;
+    width: 240px;
+    height: 300px;
+    margin-left: 5px;
+    transition: margin-bottom 0.7s;
+}
+
+.colorStorageUnit:hover {
+    margin-bottom: 15px;
+}
