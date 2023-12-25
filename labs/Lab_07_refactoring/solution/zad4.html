@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+var students = [
+    { FIO: 'Петров А.А.', Ocenka: 5 },
+    { FIO: 'Иванов Б.Б.', Ocenka: 3.4 },
+    { FIO: 'Сидоров Г.Г.', Ocenka: 9 },
+    { FIO: 'Смирнов Д.Д', Ocenka: 2 },
+    { FIO: 'Молодой Е.Е', Ocenka: 3.4 }
+];
+
+var sum = 0;
+var count = 0;
+var poorStudents = [];
+
+for (var i = 0; i < students.length; i++) {
+    var student = students[i];
+    var grade = student.Ocenka;
+
+    if (grade < 0 || grade > 5) {
+        console.log('Оценка для студента ' + student.FIO + 'не соответствует допустимым значениям');
+        continue;
+    }
+
+    if (grade < 4) {
+        poorStudents.push(student);
+    }
+
+    sum += grade;
+    count++;
+}
+
+if (count > 0) {
+    var averageGrade = sum / count;
+    console.log('Средняя оценка: ' + averageGrade);
+} else {
+    console.log('Нет оценок для учета');
+}
+
+console.log('Плохие студенты:');
+if (poorStudents.length === 0) {
+    console.log('Таких нет');
+} else {
+    poorStudents.forEach(function (student) {
+        console.log('ФИО: ' + student.FIO + '; Оценка: ' + student.Ocenka);
+    });
+}
+    </script>
+</body>
+</html>

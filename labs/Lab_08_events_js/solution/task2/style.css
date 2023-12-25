@@ -1,0 +1,13 @@
+.color-box 
+{
+     display: flex;
+     align-items: center;
+}
+
+.color-square 
+{
+    width: 300px;
+    height: 300px;
+    border: 3px solid black;
+    margin-left: 30px;
+}

@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task2</title>
-    <script src="upp.js"></script>
+    <title>Изменение цвета квадрата</title>
+    <link rel="stylesheet" href="laba8_2.css" />
+   
 </head>
 <body>
-    <div style="width: 100%; height: 300px;"></div>
-    <input name="red" type="text" value="40">
-    <input name="green" type="text" value="90">
-    <input name="blue" type="text" value="70">
-    <div style="width: 400px; height: 400px;" name="window"></div>
+    <div class="color-box">
+        <div>
+            <label for="redInput">Red:</label>
+            <input type="number" id="redInput" min="0" max="255">
+            <label for="greenInput">Green:</label>
+            <input type="number" id="greenInput" min="0" max="255">
+            <label for="blueInput">Blue:</label>
+            <input type="number" id="blueInput" min="0" max="255">
+        </div>
+        <div id="colorSquare" class="color-square"></div>
+    </div>
+    <div class="result-box">
+        <h2>Результат:</h2>
+        <div id="colorResult"></div>
+    </div>
+<script src="laba8_2.js"></script>
 </body>
 </html>

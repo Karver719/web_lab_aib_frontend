@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1</title>
+</head>
+<body>
+    <script>
+var numberOfEmployees;
+do {
+    var input = prompt('Введите количество сотрудников', undefined);
+    numberOfEmployees = parseFloat(input);
+} while (isNaN(numberOfEmployees) || numberOfEmployees === 0);
+
+var salaryPerEmployee;
+do {
+    var input = prompt('Введите зарплату на одного сотрудника', undefined);
+    salaryPerEmployee = parseFloat(input);
+} while (isNaN(salaryPerEmployee) || salaryPerEmployee === 0);
+
+var totalCost = numberOfEmployees * salaryPerEmployee;
+alert('Затраты на зарплату: ' + totalCost);
+    </script>
+</body>
+</html>

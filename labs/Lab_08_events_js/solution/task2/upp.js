@@ -1,32 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
-    let redInput = document.querySelector('input[name="red"]')
-    let greenInput = document.querySelector('input[name="green"]')
-    let blueInput = document.querySelector('input[name="blue"]')
-    let window = document.querySelector('div[name=window]')
-    
-    let red = redInput.value
-    let green = greenInput.value
-    let blue = blueInput.value
-    
-    redInput.oninput = function(){
-        red = redInput.value
-    
-        window.style['background-color'] = 'rgb('+red+', '+green+', '+blue+')'
-        console.log(redInput.value)
+const redInput = document.getElementById('redInput');
+const greenInput = document.getElementById('greenInput');
+const blueInput = document.getElementById('blueInput');
+const colorResult = document.getElementById('colorResult');
+const colorSquare = document.getElementById('colorSquare');
+
+function changeBackgroundColor() 
+{
+    const red = redInput.value || 0;
+    const green = greenInput.value || 0;
+    const blue = blueInput.value || 0;
+
+    if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) 
+    {
+        const rgbColor = `rgb(${red}, ${green}, ${blue})`;
+        colorResult.textContent = `Выбранный цвет: ${rgbColor}`;
+        colorSquare.style.backgroundColor = rgbColor;
+    } else 
+    {
+        colorResult.textContent = 'Неверное значение';
+        colorSquare.style.backgroundColor = 'white';
     }
-    
-    greenInput.oninput = function(){
-        green = greenInput.value
-    
-        window.style['background-color'] = 'rgb('+red+', '+green+', '+blue+')'
-        console.log(greenInput.value)
-    }
-    
-    blueInput.oninput = function(){
-        blue = blueInput.value
-    
-        window.style['background-color'] = 'rgb('+red+', '+green+', '+blue+')'
-        console.log(blueInput.value)
-    }
-    
-    })
+}
+
+redInput.addEventListener('input', changeBackgroundColor);
+greenInput.addEventListener('input', changeBackgroundColor);
+blueInput.addEventListener('input', changeBackgroundColor);
+
+changeBackgroundColor();

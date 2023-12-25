@@ -1,59 +1,56 @@
-document.addEventListener("DOMContentLoaded", () => {
-    let redInput = document.querySelector('input[name="red"]')
-    let greenInput = document.querySelector('input[name="green"]')
-    let blueInput = document.querySelector('input[name="blue"]')
-    let window = document.querySelector('div[name=window]')
-    
-    let red = redInput.value
-    let green = greenInput.value
-    let blue = blueInput.value
+const redInput = document.getElementById('redInput');
+const greenInput = document.getElementById('greenInput');
+const blueInput = document.getElementById('blueInput');
+const colorResult = document.getElementById('colorResult');
+const colorSquare = document.getElementById('colorSquare');
+const colorList = document.getElementById('listOfBoxes');
+let colorBoxesCount = 15;
+let maxColorBoxesCountFlag = false;
 
-    let colorCounter = 0
-    const colorStorageCapacity = 15
-    let colorStorage = document.querySelector('div[name=colorStorage]')
-    let genButton = document.querySelector('input[name=generate]')
-    console.log(colorStorage)
-    
-    redInput.oninput = function(){
-        red = redInput.value
-    
-        window.style['background-color'] = 'rgb('+red+', '+green+', '+blue+')'
-        console.log(redInput.value)
-    }
-    
-    greenInput.oninput = function(){
-        green = greenInput.value
-    
-        window.style['background-color'] = 'rgb('+red+', '+green+', '+blue+')'
-        console.log(greenInput.value)
-    }
-    
-    blueInput.oninput = function(){
-        blue = blueInput.value
-    
-        window.style['background-color'] = 'rgb('+red+', '+green+', '+blue+')'
-        console.log(blueInput.value)
-    }
+function changeBackgroundColor() {
+    const red = redInput.value || 0;
+    const green = greenInput.value || 0;
+    const blue = blueInput.value || 0;
 
-    genButton.addEventListener('click', function(){
-        colorCounter += 1
+    if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
+        const rgbColor = `rgb(${red}, ${green}, ${blue})`;
+        colorResult.textContent = `Выбранный цвет: ${rgbColor}`;
+        colorSquare.style.backgroundColor = rgbColor;
+    } else {
+        colorResult.textContent = 'Неверное значение';
+        colorSquare.style.backgroundColor = 'white';
+    }
+}
 
-        if (colorCounter == colorStorageCapacity){
-            colorCounter = 0
+function addBoxToList()
+{
+    if(colorBoxesCount > 0 && !maxColorBoxesCountFlag)
+    {
+        let NewColorBox = colorSquare.cloneNode(true);
+        let stringCount=15 - colorBoxesCount;
+        NewColorBox.id="colorSquare" + stringCount.toString();
+        colorList.append(NewColorBox);
+        colorBoxesCount-=1;
+        if(colorBoxesCount <= 0)
+        {
+            maxColorBoxesCountFlag = true;
         }
-
-        if (colorStorage.childNodes.length < colorStorageCapacity){
-            let colorStorageUnit = document.createElement('div')
-            colorStorageUnit.className = 'colorStorageUnit'
-            //colorStorageUnit.style['height'] = '250px'
-            //colorStorageUnit.style['margin-left'] = '5px'
-            colorStorageUnit.style['background-color'] = 'rgb('+red+', '+green+', '+blue+')'
-            //colorStorageUnit.style['transition'] = 'height 1s'
-            //colorStorageUnit.style['div:hover'] = '270px'
-            colorStorage.append(colorStorageUnit)
-        } else {
-            colorStorage.childNodes[colorCounter].style['background-color'] = 'rgb('+red+', '+green+', '+blue+')'
+    } else
+    {
+        let NewColorBox = colorSquare.cloneNode(true);
+        NewColorBox.id="colorSquare" + colorBoxesCount.toString();
+        document.getElementById("colorSquare" + colorBoxesCount.toString()).replaceWith(NewColorBox);
+        colorBoxesCount+=1;
+        if(colorBoxesCount === 15)
+        {
+            colorBoxesCount = 0;
         }
-        
-    })
-})
+    }
+
+}
+
+redInput.addEventListener('input', changeBackgroundColor);
+greenInput.addEventListener('input', changeBackgroundColor);
+blueInput.addEventListener('input', changeBackgroundColor);
+
+changeBackgroundColor();
